@@ -1,479 +1,173 @@
-<!DOCTYPE html>
-<html>
-<head>
-  <meta charset="utf-8">
-  
-  
-  <title>Anti&#39;s Blog</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-  <meta name="description" content="AntiDotE的个人博客">
+<!DOCTYPE html><html lang="zh-CN" data-theme="light"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1.0,viewport-fit=cover"><title>Anti's Blog - 一点一点学习</title><meta name="author" content="AntiDotE"><meta name="copyright" content="AntiDotE"><meta name="format-detection" content="telephone=no"><meta name="theme-color" content="#ffffff"><meta name="description" content="AntiDotE的个人博客">
 <meta property="og:type" content="website">
 <meta property="og:title" content="Anti&#39;s Blog">
 <meta property="og:url" content="https://antidote-bupt.github.io/index.html">
 <meta property="og:site_name" content="Anti&#39;s Blog">
 <meta property="og:description" content="AntiDotE的个人博客">
 <meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://antidote-bupt.github.io/img/butterfly-icon.png">
 <meta property="article:author" content="AntiDotE">
 <meta property="article:tag" content="AntiDotE">
 <meta name="twitter:card" content="summary">
-  
-    <link rel="alternate" href="/atom.xml" title="Anti's Blog" type="application/atom+xml">
-  
-  
-    <link rel="shortcut icon" href="/favicon.png">
-  
-  
-  
-<link rel="stylesheet" href="/css/style.css">
-
-  
-    
-<link rel="stylesheet" href="/fancybox/jquery.fancybox.min.css">
-
-  
-  
-<meta name="generator" content="Hexo 7.3.0"></head>
-
-<body>
-  <div id="container">
-    <div id="wrap">
-      <header id="header">
-  <div id="banner"></div>
-  <div id="header-outer" class="outer">
-    <div id="header-title" class="inner">
-      <h1 id="logo-wrap">
-        <a href="/" id="logo">Anti&#39;s Blog</a>
-      </h1>
+<meta name="twitter:image" content="https://antidote-bupt.github.io/img/butterfly-icon.png"><link rel="shortcut icon" href="/img/favicon.png"><link rel="canonical" href="https://antidote-bupt.github.io/index.html"><link rel="preconnect" href="//cdn.jsdelivr.net"/><link rel="preconnect" href="//busuanzi.ibruce.info"/><link rel="stylesheet" href="/css/index.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free/css/all.min.css"><script>
+    (() => {
       
-        <h2 id="subtitle-wrap">
-          <a href="/" id="subtitle">一点一点学习</a>
-        </h2>
+    const saveToLocal = {
+      set: (key, value, ttl) => {
+        if (!ttl) return
+        const expiry = Date.now() + ttl * 86400000
+        localStorage.setItem(key, JSON.stringify({ value, expiry }))
+      },
+      get: key => {
+        const itemStr = localStorage.getItem(key)
+        if (!itemStr) return undefined
+        const { value, expiry } = JSON.parse(itemStr)
+        if (Date.now() > expiry) {
+          localStorage.removeItem(key)
+          return undefined
+        }
+        return value
+      }
+    }
+
+    window.btf = {
+      saveToLocal,
+      getScript: (url, attr = {}) => new Promise((resolve, reject) => {
+        const script = document.createElement('script')
+        script.src = url
+        script.async = true
+        Object.entries(attr).forEach(([key, val]) => script.setAttribute(key, val))
+        script.onload = script.onreadystatechange = () => {
+          if (!script.readyState || /loaded|complete/.test(script.readyState)) resolve()
+        }
+        script.onerror = reject
+        document.head.appendChild(script)
+      }),
+      getCSS: (url, id) => new Promise((resolve, reject) => {
+        const link = document.createElement('link')
+        link.rel = 'stylesheet'
+        link.href = url
+        if (id) link.id = id
+        link.onload = link.onreadystatechange = () => {
+          if (!link.readyState || /loaded|complete/.test(link.readyState)) resolve()
+        }
+        link.onerror = reject
+        document.head.appendChild(link)
+      }),
+      addGlobalFn: (key, fn, name = false, parent = window) => {
+        if (!false && key.startsWith('pjax')) return
+        const globalFn = parent.globalFn || {}
+        globalFn[key] = globalFn[key] || {}
+        globalFn[key][name || Object.keys(globalFn[key]).length] = fn
+        parent.globalFn = globalFn
+      }
+    }
+  
+      
+      const activateDarkMode = () => {
+        document.documentElement.setAttribute('data-theme', 'dark')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#0d0d0d')
+        }
+      }
+      const activateLightMode = () => {
+        document.documentElement.setAttribute('data-theme', 'light')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#ffffff')
+        }
+      }
+
+      btf.activateDarkMode = activateDarkMode
+      btf.activateLightMode = activateLightMode
+
+      const theme = saveToLocal.get('theme')
+    
+          theme === 'dark' ? activateDarkMode() : theme === 'light' ? activateLightMode() : null
+        
+      
+      const asideStatus = saveToLocal.get('aside-status')
+      if (asideStatus !== undefined) {
+        document.documentElement.classList.toggle('hide-aside', asideStatus === 'hide')
+      }
+    
+      
+    const detectApple = () => {
+      if (/iPad|iPhone|iPod|Macintosh/.test(navigator.userAgent)) {
+        document.documentElement.classList.add('apple')
+      }
+    }
+    detectApple()
+  
+    })()
+  </script><script>const GLOBAL_CONFIG = {
+  root: '/',
+  algolia: undefined,
+  localSearch: undefined,
+  translate: undefined,
+  highlight: {"plugin":"highlight.js","highlightCopy":true,"highlightLang":true,"highlightHeightLimit":false,"highlightFullpage":false,"highlightMacStyle":false},
+  copy: {
+    success: '复制成功',
+    error: '复制失败',
+    noSupport: '浏览器不支持'
+  },
+  relativeDate: {
+    homepage: false,
+    post: false
+  },
+  runtime: '',
+  dateSuffix: {
+    just: '刚刚',
+    min: '分钟前',
+    hour: '小时前',
+    day: '天前',
+    month: '个月前'
+  },
+  copyright: undefined,
+  lightbox: 'null',
+  Snackbar: undefined,
+  infinitegrid: {
+    js: 'https://cdn.jsdelivr.net/npm/@egjs/infinitegrid/dist/infinitegrid.min.js',
+    buttonText: '加载更多'
+  },
+  isPhotoFigcaption: false,
+  islazyloadPlugin: false,
+  isAnchor: false,
+  percent: {
+    toc: true,
+    rightside: false,
+  },
+  autoDarkmode: false
+}</script><script id="config-diff">var GLOBAL_CONFIG_SITE = {
+  title: 'Anti\'s Blog',
+  isHighlightShrink: false,
+  isToc: false,
+  pageType: 'home'
+}</script><meta name="generator" content="Hexo 7.3.0"></head><body><div class="page" id="body-wrap"><header class="full_page" id="page-header"><nav id="nav"><span id="blog-info"><a class="nav-site-title" href="/"><span class="site-name">Anti's Blog</span></a></span><div id="menus"></div></nav><div id="site-info"><h1 id="site-title">Anti's Blog</h1></div><div id="scroll-down"><i class="fas fa-angle-down scroll-down-effects"></i></div></header><main class="layout" id="content-inner"><div class="recent-posts nc" id="recent-posts"><div class="recent-post-items"><div class="recent-post-item"><div class="recent-post-info no-cover"><a class="article-title" href="/2025/02/28/ernie/" title="无标题">无标题</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">发表于</span><time datetime="2025-02-28T09:13:07.678Z" title="发表于 2025-02-28 17:13:07">2025-02-28</time></span></div><div class="content"> title: 基于预训练语言模型的搜索排序系统实现项目架构及其原理   深度学习基础知识预训练模型ernie服务器创建+环境配置召回模型介绍召回模型训练召回的实现评价召回结果排序模型介绍排序模型训练实现排序+评价排序结果搜索排序系统整体实现</div></div></div><div class="recent-post-item"><div class="recent-post-info no-cover"><a class="article-title" href="/2025/02/14/question/" title="计算机考研复试专业面问答整理">计算机考研复试专业面问答整理</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">发表于</span><time datetime="2025-02-14T10:47:09.174Z" title="发表于 2025-02-14 18:47:09">2025-02-14</time></span></div><div class="content">本文内容均来源于网络，仅做摘录整理 软件工程数据库linux计算机网络面向对象编程机器学习编程语言new与mallocJava与C++   </div></div></div><div class="recent-post-item"><div class="recent-post-info no-cover"><a class="article-title" href="/2025/02/13/algorithm/" title="anti的算法笔记">anti的算法笔记</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">发表于</span><time datetime="2025-02-13T08:08:02.920Z" title="发表于 2025-02-13 16:08:02">2025-02-13</time></span></div><div class="content">备战复试机试，本文学习内容来自Acwing语法基础班以及算法基础班，仅做个人笔记   1 C语言语法基础 level1 常用语法 及 语法技巧 （约20小时）200题    头文件头文件 #include &lt;cstdio&gt; 包含了 printf 和 scanf 函数头文件 #include &lt;iostream&gt; 包含了cin 和 cout 函数万能头 #include&lt;bits/stdc++.h&gt;  命名空间使用命名空间 using namespace std，使得不同C++文件中的变量不会重名冲突     变量变量类型   123bool  布尔类型 1表示true 0表示false  long long int 64位整形  long double 更长的浮点数    变量声明   12long long l = 1000000000LL   最后的`LL`表示强制长整形，不加的话表示整数   float f = 12.34f   同理最后的f表示强制浮点数    输入输出12cin &gt;&gt; a &gt;&gt; b; ...</div></div></div><div class="recent-post-item"><div class="recent-post-info no-cover"><a class="article-title" href="/2025/01/18/markdown/" title="Markdown用法简单记录">Markdown用法简单记录</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">发表于</span><time datetime="2025-01-18T13:11:00.494Z" title="发表于 2025-01-18 21:11:00">2025-01-18</time></span></div><div class="content">Markdown 是一种轻量级标记语言，它允许人们使用易读易写的纯文本格式编写文档 1.标题用几个“#”号来表示几级标题123456# 一级标题## 二级标题### 三级标题#### 四级标题##### 五级标题###### 六级标题 2. 段落段落的换行是使用两个以上空格加上回车   3.字体可以用 * 号或者 下换线_ 加在字体的两侧一个表示斜体；两个表示粗体；三个表示粗斜体如下： 1234567*斜体文本*  _斜体文本_  **粗体文本**  __粗体文本__  ***粗斜体文本***  ___粗斜体文本___ 斜体文本斜体文本粗体文本粗体文本粗斜体文本粗斜体文本 4.分割线可以在一行中引入三个相同的星号、减号、下划线来建立一个分割线，如下 123456**** * ******- - -----------___  5.删除线在文字的两端加上两个~~即可，如： 1~~BAIDU.COM~~ BAIDU.COM 6.创建注脚123[^要注明的文本]创建脚注格式类似这样 [^RUNOOB]。  7.列表Markdown 支持有序列表和无序列表无序列表在星号* 加号+...</div></div></div></div><nav id="pagination"><div class="pagination"><span class="page-number current">1</span></div></nav></div><div class="aside-content" id="aside-content"><div class="card-widget card-info text-center"><div class="avatar-img"><img src="/img/butterfly-icon.png" onerror="this.onerror=null;this.src='/img/friend_404.gif'" alt="avatar"/></div><div class="author-info-name">AntiDotE</div><div class="author-info-description">AntiDotE的个人博客</div><div class="site-data"><a href="/archives/"><div class="headline">文章</div><div class="length-num">4</div></a><a href="/tags/"><div class="headline">标签</div><div class="length-num">0</div></a><a href="/categories/"><div class="headline">分类</div><div class="length-num">0</div></a></div><a id="card-info-btn" target="_blank" rel="noopener" href="https://github.com/xxxxxx"><i class="fab fa-github"></i><span>Follow Me</span></a></div><div class="card-widget card-announcement"><div class="item-headline"><i class="fas fa-bullhorn fa-shake"></i><span>公告</span></div><div class="announcement_content">This is my Blog</div></div><div class="sticky_layout"><div class="card-widget card-recent-post"><div class="item-headline"><i class="fas fa-history"></i><span>最新文章</span></div><div class="aside-list"><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/2025/02/28/ernie/" title="无标题">无标题</a><time datetime="2025-02-28T09:13:07.678Z" title="发表于 2025-02-28 17:13:07">2025-02-28</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/2025/02/14/question/" title="计算机考研复试专业面问答整理">计算机考研复试专业面问答整理</a><time datetime="2025-02-14T10:47:09.174Z" title="发表于 2025-02-14 18:47:09">2025-02-14</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/2025/02/13/algorithm/" title="anti的算法笔记">anti的算法笔记</a><time datetime="2025-02-13T08:08:02.920Z" title="发表于 2025-02-13 16:08:02">2025-02-13</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/2025/01/18/markdown/" title="Markdown用法简单记录">Markdown用法简单记录</a><time datetime="2025-01-18T13:11:00.494Z" title="发表于 2025-01-18 21:11:00">2025-01-18</time></div></div></div></div><div class="card-widget card-archives">
+    <div class="item-headline">
+      <i class="fas fa-archive"></i>
+      <span>归档</span>
       
     </div>
-    <div id="header-inner" class="inner">
-      <nav id="main-nav">
-        <a id="main-nav-toggle" class="nav-icon"><span class="fa fa-bars"></span></a>
-        
-          <a class="main-nav-link" href="/">Home</a>
-        
-          <a class="main-nav-link" href="/archives">Archives</a>
-        
-      </nav>
-      <nav id="sub-nav">
-        
-        
-          <a class="nav-icon" href="/atom.xml" title="RSS 订阅"><span class="fa fa-rss"></span></a>
-        
-        <a class="nav-icon nav-search-btn" title="搜索"><span class="fa fa-search"></span></a>
-      </nav>
-      <div id="search-form-wrap">
-        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="搜索"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="https://antidote-bupt.github.io"></form>
-      </div>
-    </div>
-  </div>
-</header>
-
-      <div class="outer">
-        <section id="main">
   
-    <article id="post-ernie" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
-  <div class="article-meta">
-    <a href="/2025/02/28/ernie/" class="article-date">
-  <time class="dt-published" datetime="2025-02-28T09:13:07.678Z" itemprop="datePublished">2025-02-28</time>
-</a>
-    
-  </div>
-  <div class="article-inner">
-    
-    
-    <div class="e-content article-entry" itemprop="articleBody">
+    <ul class="card-archive-list">
       
-        <hr>
-<h2 id="title-基于预训练语言模型的搜索排序系统实现"><a href="#title-基于预训练语言模型的搜索排序系统实现" class="headerlink" title="title: 基于预训练语言模型的搜索排序系统实现"></a>title: 基于预训练语言模型的搜索排序系统实现</h2><h1 id="项目架构及其原理"><a href="#项目架构及其原理" class="headerlink" title="项目架构及其原理"></a>项目架构及其原理</h1><p><img src="/./%E5%9B%BE%E7%89%87/%E9%A1%B9%E7%9B%AE%E6%B5%81%E7%A8%8B.png" alt="项目流程">  </p>
-<h1 id="深度学习基础知识"><a href="#深度学习基础知识" class="headerlink" title="深度学习基础知识"></a>深度学习基础知识</h1><h1 id="预训练模型ernie"><a href="#预训练模型ernie" class="headerlink" title="预训练模型ernie"></a>预训练模型ernie</h1><h1 id="服务器创建-环境配置"><a href="#服务器创建-环境配置" class="headerlink" title="服务器创建+环境配置"></a>服务器创建+环境配置</h1><h1 id="召回模型介绍"><a href="#召回模型介绍" class="headerlink" title="召回模型介绍"></a>召回模型介绍</h1><h1 id="召回模型训练"><a href="#召回模型训练" class="headerlink" title="召回模型训练"></a>召回模型训练</h1><h1 id="召回的实现"><a href="#召回的实现" class="headerlink" title="召回的实现"></a>召回的实现</h1><h1 id="评价召回结果"><a href="#评价召回结果" class="headerlink" title="评价召回结果"></a>评价召回结果</h1><h1 id="排序模型介绍"><a href="#排序模型介绍" class="headerlink" title="排序模型介绍"></a>排序模型介绍</h1><h1 id="排序模型训练"><a href="#排序模型训练" class="headerlink" title="排序模型训练"></a>排序模型训练</h1><h1 id="实现排序-评价排序结果"><a href="#实现排序-评价排序结果" class="headerlink" title="实现排序+评价排序结果"></a>实现排序+评价排序结果</h1><h1 id="搜索排序系统整体实现"><a href="#搜索排序系统整体实现" class="headerlink" title="搜索排序系统整体实现"></a>搜索排序系统整体实现</h1>
+        <li class="card-archive-list-item">
+          <a class="card-archive-list-link" href="/archives/2025/02/">
+            <span class="card-archive-list-date">
+              二月 2025
+            </span>
+            <span class="card-archive-list-count">3</span>
+          </a>
+        </li>
       
-    </div>
-    <footer class="article-footer">
-      <a data-url="https://antidote-bupt.github.io/2025/02/28/ernie/" data-id="cm7raphhc0001gsvm8gfr0lzp" data-title="" class="article-share-link"><span class="fa fa-share">分享</span></a>
+        <li class="card-archive-list-item">
+          <a class="card-archive-list-link" href="/archives/2025/01/">
+            <span class="card-archive-list-date">
+              一月 2025
+            </span>
+            <span class="card-archive-list-count">1</span>
+          </a>
+        </li>
       
-      
-      
-    </footer>
-  </div>
-  
-</article>
-
-
-
-  
-    <article id="post-question" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
-  <div class="article-meta">
-    <a href="/2025/02/14/question/" class="article-date">
-  <time class="dt-published" datetime="2025-02-14T10:47:09.174Z" itemprop="datePublished">2025-02-14</time>
-</a>
-    
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="p-name article-title" href="/2025/02/14/question/">计算机考研复试专业面问答整理</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="e-content article-entry" itemprop="articleBody">
-      
-        <p>本文内容均来源于网络，仅做摘录整理</p>
-<h1 id="软件工程"><a href="#软件工程" class="headerlink" title="软件工程"></a>软件工程</h1><h1 id="数据库"><a href="#数据库" class="headerlink" title="数据库"></a>数据库</h1><h1 id="linux"><a href="#linux" class="headerlink" title="linux"></a>linux</h1><h1 id="计算机网络"><a href="#计算机网络" class="headerlink" title="计算机网络"></a>计算机网络</h1><h1 id="面向对象编程"><a href="#面向对象编程" class="headerlink" title="面向对象编程"></a>面向对象编程</h1><h1 id="机器学习"><a href="#机器学习" class="headerlink" title="机器学习"></a>机器学习</h1><h1 id="编程语言"><a href="#编程语言" class="headerlink" title="编程语言"></a>编程语言</h1>
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="https://antidote-bupt.github.io/2025/02/14/question/" data-id="cm7raphhd0002gsvmfs6p28lf" data-title="计算机考研复试专业面问答整理" class="article-share-link"><span class="fa fa-share">分享</span></a>
-      
-      
-      
-    </footer>
-  </div>
-  
-</article>
-
-
-
-  
-    <article id="post-algorithm" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
-  <div class="article-meta">
-    <a href="/2025/02/13/algorithm/" class="article-date">
-  <time class="dt-published" datetime="2025-02-13T08:08:02.920Z" itemprop="datePublished">2025-02-13</time>
-</a>
-    
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="p-name article-title" href="/2025/02/13/algorithm/">anti的算法笔记</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="e-content article-entry" itemprop="articleBody">
-      
-        <p>备战复试机试，本文学习内容来自Acwing语法基础班以及算法基础班，仅做个人笔记  </p>
-<h1 id="1-C语言语法基础"><a href="#1-C语言语法基础" class="headerlink" title="1 C语言语法基础"></a>1 C语言语法基础</h1><blockquote>
-<p>level1 常用语法 及 语法技巧 （约20小时）200题  </p>
-</blockquote>
-<h2 id="头文件"><a href="#头文件" class="headerlink" title="头文件"></a>头文件</h2><p>头文件 <code>#include &lt;cstdio&gt;</code> 包含了 <code>printf</code> 和 <code>scanf</code> 函数<br>头文件 <code>#include &lt;iostream&gt;</code> 包含了<code>cin</code> 和 <code>cout</code> 函数<br>万能头 <code>#include&lt;bits/stdc++.h&gt;</code> </p>
-<h2 id="命名空间"><a href="#命名空间" class="headerlink" title="命名空间"></a>命名空间</h2><p>使用命名空间 <code>using namespace std</code>，使得不同C++文件中的变量不会重名冲突    </p>
-<h2 id="变量"><a href="#变量" class="headerlink" title="变量"></a>变量</h2><p>变量类型  </p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">bool  布尔类型 1表示true 0表示false  </span><br><span class="line">long long int 64位整形  </span><br><span class="line">long double 更长的浮点数  </span><br></pre></td></tr></table></figure>
-
-<p>变量声明  </p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">long long l = 1000000000LL   最后的`LL`表示强制长整形，不加的话表示整数   </span><br><span class="line">float f = 12.34f   同理最后的f表示强制浮点数  </span><br></pre></td></tr></table></figure>
-
-<h2 id="输入输出"><a href="#输入输出" class="headerlink" title="输入输出"></a>输入输出</h2><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">cin &gt;&gt; a &gt;&gt; b;  </span><br><span class="line">cout &lt;&lt; a + b &lt;&lt; endl;  </span><br></pre></td></tr></table></figure>
-
-<p>或者  </p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">scanf(&quot;%d %d&quot;, &amp;a, &amp;b);  </span><br><span class="line">printf(&quot;%d %d\n&quot;, a + b, a - b);    </span><br><span class="line">保留两位小数的`float`浮点数 %.2f    </span><br><span class="line">`double`用%lf    </span><br><span class="line">`long long`用%lld   </span><br></pre></td></tr></table></figure>
-<h3 id="输出多个变量"><a href="#输出多个变量" class="headerlink" title="输出多个变量"></a>输出多个变量</h3><p>cout &lt;&lt; a + b &lt;&lt; ‘ ‘ &lt;&lt; a * b &lt;&lt; endl;  </p>
-<h3 id="判断浮点数相等"><a href="#判断浮点数相等" class="headerlink" title="判断浮点数相等"></a>判断浮点数相等</h3><p>fabs(sqrt(3) * sqrt(3) - 3 ) &lt; eps  </p>
-<h3 id="消除浮点数精度误差"><a href="#消除浮点数精度误差" class="headerlink" title="消除浮点数精度误差"></a>消除浮点数精度误差</h3><p>round(a * 100) &#x2F; 100.0  </p>
-<h2 id="数组"><a href="#数组" class="headerlink" title="数组"></a>数组</h2><p>初始化： <code>int a[3] = &#123;0, 1, 3&#125;&#39;</code><br>也可以不写长度： <code>int b[] = &#123;0, 1, 3&#125;&#39;</code><br>全部初始化：<code>int f[10] = &#123;0&#125;;</code><br>清空数组：<code>memset(a, 0, sizeof a);</code> 数组名、初始化成什么数字、字节数B<br>复制数组：<code>memcpy(b, a, sizeof a);</code> 把a复制给b，第三个参数为长度  </p>
-<h2 id="字符数组"><a href="#字符数组" class="headerlink" title="字符数组"></a>字符数组</h2><pre><code>ASCII码表记忆  
-48 0  
-65 A  
-97 a  
-
-一种初始化方式： char a4[6] = &quot;daniel&quot;;  
-读入char s[]： scanf(&quot;%s&quot;, s);  
-读入string: getline(cin, s);  
-过滤回车： scanf(&quot;\n%c&quot;, &amp;c);
-
-字符串常用函数：  
-strlen(s); 返回长度  
-strcmp(a, b); 比较字典序大小 a - b，返回-1 0 1  
-strcpy(s2, s1); 把s1赋值给s2;
-</code></pre>
-<h2 id="字符串"><a href="#字符串" class="headerlink" title="字符串"></a>字符串</h2><p>标准库类型string, 包含在<code>#include &lt;string&gt;</code><br>初始化：  </p>
-<pre><code>getline(cin, s); //包含空格的一次读入一行  
-
-cin &gt;&gt; s; //不包含空格的读入一个字符串  
-
-string s2 = s1; //支持赋值  
-
-string支持&lt;、&gt;、==的比较，支持两个string用+号拼接； 
-
-如何处理多组字符串输入：  while(cin &gt;&gt; s &gt;&gt; sub)  或者 while(getline(cin, A))  
-
-字面值和string相加会转化为string，两端至少有一个stirng类型；  
-</code></pre>
-<p>常用函数：   </p>
-<pre><code>s1.empty(); //返回0或1;  
-
-s1.size(); //返回无符号整数，O(1);   
-
-s.substr(idx, len);//返回s从idx为下标，len为长度的子字符串  
-
-s.insert(idx + 1, sub); // 在原串下标为idx的字符串str前插入字符串s  
-
-c = tolower(c)    c = toupper(c)// 转换大小写;  
-
-s1.find(s2); // 在 s1 中查找字符串 s2，找到返回 s2 首字母在字符串中的下标，找不到返回 -1  
-s1.rfind(s2); //反向查找  
-
-s1.replace(pos, len, s2);  // 把 s1 中从下标 pos 开始的长度为 len 的子串替换为 s2    
-
-s1.erase(it);  // 把 s1 字符串中迭代器 it 处的字符删除  
-
-s1.erase(pos, len);// 把 s1 中从下标 pos 开始的长度为 len 的子串删除 
-</code></pre>
-<h2 id="函数"><a href="#函数" class="headerlink" title="函数"></a>函数</h2><h3 id="静态变量"><a href="#静态变量" class="headerlink" title="静态变量"></a>静态变量</h3><p>static int cnt &#x3D; 0&#96; 初始化仅会在第一次调用时进行<br>相当于在函数内部开了一个只有这个函数能调用的全局变量，开在堆区避免爆栈以及避免变量重名</p>
-<h3 id="传参"><a href="#传参" class="headerlink" title="传参"></a>传参</h3><p>传值参数<br><code>int max(int x, int y)</code><br>传引用参数<br><code>int max(int &amp;x, int &amp;y)</code><br>数组形参（多维数组只有第一位宽度可以省略）<br><code> int output(int n, int a[5])</code>  或 <code>int output(int n, int a[])</code> 或 <code>int output(int n, int *a)</code><br>默认参数<code>void foo(int a, int b = 10)</code>  </p>
-<h2 id="类"><a href="#类" class="headerlink" title="类"></a>类</h2><p>类可以将变量、数组和函数打包在一起</p>
-<h2 id="结构体"><a href="#结构体" class="headerlink" title="结构体"></a>结构体</h2><h2 id="指针"><a href="#指针" class="headerlink" title="指针"></a>指针</h2><h2 id="引用"><a href="#引用" class="headerlink" title="引用"></a>引用</h2><h2 id="STL"><a href="#STL" class="headerlink" title="STL"></a>STL</h2><h2 id="位运算"><a href="#位运算" class="headerlink" title="位运算"></a>位运算</h2><h2 id="常用库函数"><a href="#常用库函数" class="headerlink" title="常用库函数"></a>常用库函数</h2><h1 id="2-算法基础课"><a href="#2-算法基础课" class="headerlink" title="2 算法基础课"></a>2 算法基础课</h1><blockquote>
-<p>level2 各种常用算法原理 及 模板 （约45小时）</p>
-</blockquote>
-
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="https://antidote-bupt.github.io/2025/02/13/algorithm/" data-id="cm7raphh40000gsvmburr16wm" data-title="anti的算法笔记" class="article-share-link"><span class="fa fa-share">分享</span></a>
-      
-      
-      
-    </footer>
-  </div>
-  
-</article>
-
-
-
-  
-    <article id="post-markdown" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
-  <div class="article-meta">
-    <a href="/2025/01/18/markdown/" class="article-date">
-  <time class="dt-published" datetime="2025-01-18T13:11:00.494Z" itemprop="datePublished">2025-01-18</time>
-</a>
-    
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="p-name article-title" href="/2025/01/18/markdown/">Markdown用法简单记录</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="e-content article-entry" itemprop="articleBody">
-      
-        <p>Markdown 是一种轻量级标记语言，它允许人们使用易读易写的纯文本格式编写文档</p>
-<h2 id="1-标题"><a href="#1-标题" class="headerlink" title="1.标题"></a>1.标题</h2><h3 id="用几个“-”号来表示几级标题"><a href="#用几个“-”号来表示几级标题" class="headerlink" title="用几个“#”号来表示几级标题"></a>用几个“#”号来表示几级标题</h3><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"># 一级标题</span><br><span class="line">## 二级标题</span><br><span class="line">### 三级标题</span><br><span class="line">#### 四级标题</span><br><span class="line">##### 五级标题</span><br><span class="line">###### 六级标题</span><br></pre></td></tr></table></figure>
-<h2 id="2-段落"><a href="#2-段落" class="headerlink" title="2. 段落"></a>2. 段落</h2><p>段落的换行是使用两个以上空格加上回车  </p>
-<h2 id="3-字体"><a href="#3-字体" class="headerlink" title="3.字体"></a>3.字体</h2><p>可以用 * 号或者 下换线_ 加在字体的两侧<br>一个表示斜体；两个表示粗体；三个表示粗斜体<br>如下：</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">*斜体文本*  </span><br><span class="line">_斜体文本_  </span><br><span class="line">**粗体文本**  </span><br><span class="line">__粗体文本__  </span><br><span class="line">***粗斜体文本***  </span><br><span class="line">___粗斜体文本___</span><br><span class="line"></span><br></pre></td></tr></table></figure>
-<p><em>斜体文本</em><br><em>斜体文本</em><br><strong>粗体文本</strong><br><strong>粗体文本</strong><br><em><strong>粗斜体文本</strong></em><br><em><strong>粗斜体文本</strong></em></p>
-<h2 id="4-分割线"><a href="#4-分割线" class="headerlink" title="4.分割线"></a>4.分割线</h2><p>可以在一行中引入三个相同的星号、减号、下划线来建立一个分割线，如下</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">***</span><br><span class="line">* * *</span><br><span class="line">*****</span><br><span class="line">- - -</span><br><span class="line">----------</span><br><span class="line">___</span><br></pre></td></tr></table></figure>
-
-<h2 id="5-删除线"><a href="#5-删除线" class="headerlink" title="5.删除线"></a>5.删除线</h2><p>在文字的两端加上两个~~即可，如：</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">~~BAIDU.COM~~</span><br></pre></td></tr></table></figure>
-<p><del>BAIDU.COM</del></p>
-<h2 id="6-创建注脚"><a href="#6-创建注脚" class="headerlink" title="6.创建注脚"></a>6.创建注脚</h2><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">[^要注明的文本]</span><br><span class="line"></span><br><span class="line">创建脚注格式类似这样 [^RUNOOB]。</span><br></pre></td></tr></table></figure>
-
-<h2 id="7-列表"><a href="#7-列表" class="headerlink" title="7.列表"></a>7.列表</h2><p>Markdown 支持有序列表和无序列表<br>无序列表在星号* 加号+ 减号- 后面加上一个空格，在填写内容：  </p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">* 第一项</span><br><span class="line">+ 第二项</span><br><span class="line">- 第三项</span><br></pre></td></tr></table></figure>
-<ul>
-<li>第一项</li>
-</ul>
-<ul>
-<li>第二项</li>
-</ul>
-<ul>
-<li>第三项</li>
-</ul>
-<p>有序列表使用数字并加上 . 号来表示，如：</p>
-<ol>
-<li>第一项</li>
-<li>第二项</li>
-<li>第三项</li>
-</ol>
-<p>列表嵌套<br>列表嵌套只需在子列表中的选项前面添加两个或四个空格即可：</p>
-<ol>
-<li>第一项：<ul>
-<li>第一项嵌套的第一个元素</li>
-<li>第一项嵌套的第二个元素</li>
-</ul>
-</li>
-<li>第二项：<ul>
-<li>第二项嵌套的第一个元素</li>
-<li>第二项嵌套的第二个元素</li>
-</ul>
-</li>
-</ol>
-<h2 id="8-区块"><a href="#8-区块" class="headerlink" title="8.区块"></a>8.区块</h2><p> 区块引用是在段落开头使用 &gt; 符号 ，然后后面紧跟一个空格符号：  </p>
-<blockquote>
-<p>区块引用   </p>
-</blockquote>
-<p>区块是可以嵌套的，一个 &gt; 符号是最外层，两个 &gt; 符号是第一层嵌套，以此类推：</p>
-<blockquote>
-<p>最外层</p>
-<blockquote>
-<p>第一层嵌套</p>
-<blockquote>
-<p>第二层嵌套  </p>
-</blockquote>
-</blockquote>
-</blockquote>
-<p>可以在列表中嵌套区块，也可以在区块中嵌套列表（在 &gt; 前添加四个空格的缩进）</p>
-<h2 id="9-代码"><a href="#9-代码" class="headerlink" title="9.代码"></a>9.代码</h2><p>如果是段落上的一个函数或片段的代码可以用反引号 &#96;&#96; 把它包起来<br>如：<br><code>printf()</code> 函数    </p>
-<p>代码区块使用 &#96;&#96;&#96; 包裹一段代码，并指定一种语言（也可以不指定）：</p>
-<pre><code><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">$(<span class="variable language_">document</span>).<span class="title function_">ready</span>(<span class="keyword">function</span> (<span class="params"></span>) &#123;</span><br><span class="line">    <span class="title function_">alert</span>(<span class="string">&#x27;RUNOOB&#x27;</span>);</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
-</code></pre>
-<p>可以在整段代码前加上一个制表符Tab:  </p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">$(document).ready(function () &#123;</span><br><span class="line">    alert(&#x27;RUNOOB&#x27;);</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
-
-<h2 id="10-链接"><a href="#10-链接" class="headerlink" title="10.链接"></a>10.链接</h2><p>链接的使用方法如下：</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">[链接名称](链接地址)</span><br></pre></td></tr></table></figure>
-<p>这是一个链接 <a href="https://antidote-bupt.github.io/">我的博客</a>    </p>
-<p>或者直接用  </p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;链接地址&gt;</span><br></pre></td></tr></table></figure>
-<p><a href="https://antidote-bupt.github.io/">https://antidote-bupt.github.io</a></p>
-<h2 id="11-图片"><a href="#11-图片" class="headerlink" title="11.图片"></a>11.图片</h2><p>在markdown中，图片的语法格式为：  </p>
-<ul>
-<li>开头一个感叹号！</li>
-<li>接着一个方括号，里面放上图片的代替文字 [图片1]</li>
-<li>接着一个普通括号，里面放上图片的地址，最后还可以用引号包住并加上选择性的’title’属性的文字</li>
-</ul>
-<p>例如： </p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">![RUNOOB 图标](https://static.jyshare.com/images/runoob-logo.png)</span><br></pre></td></tr></table></figure>
-
-<h2 id="12-表格"><a href="#12-表格" class="headerlink" title="12.表格"></a>12.表格</h2><p>表格语法如下：</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">|  表头   | 表头  |</span><br><span class="line">|  ----  | ----  |</span><br><span class="line">| 单元格  | 单元格 |</span><br><span class="line">| 单元格  | 单元格 |</span><br></pre></td></tr></table></figure>
-
-<p>对于表格中的每一列，可以设置不同的对齐方式，如-：为右对齐；:-为左对齐；:-:为居中对齐</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">| 左对齐 | 右对齐 | 居中对齐 |</span><br><span class="line">| :-----| ----: | :----: |</span><br><span class="line">| 单元格 | 单元格 | 单元格 |</span><br><span class="line">| 单元格 | 单元格 | 单元格 |</span><br></pre></td></tr></table></figure>
-<h1 id="此外"><a href="#此外" class="headerlink" title="此外"></a>此外</h1><p>不在 Markdown 涵盖范围之内的标签，都可以直接在文档里面用 HTML 撰写。<br>markdown支持转义字符，也支持Katex和MathJax的数学表达式渲染 </p>
-
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="https://antidote-bupt.github.io/2025/01/18/markdown/" data-id="cm7raphhe0003gsvm270pg6lw" data-title="Markdown用法简单记录" class="article-share-link"><span class="fa fa-share">分享</span></a>
-      
-      
-      
-    </footer>
-  </div>
-  
-</article>
-
-
-
-  
-
-
-</section>
-        
-          <aside id="sidebar">
-  
-    
-
-  
-    
-
-  
-    
-  
-    
-  <div class="widget-wrap">
-    <h3 class="widget-title">归档</h3>
-    <div class="widget">
-      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2025/02/">二月 2025</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2025/01/">一月 2025</a></li></ul>
-    </div>
-  </div>
-
-
-  
-    
-  <div class="widget-wrap">
-    <h3 class="widget-title">最新文章</h3>
-    <div class="widget">
-      <ul>
-        
-          <li>
-            <a href="/2025/02/28/ernie/">(no title)</a>
-          </li>
-        
-          <li>
-            <a href="/2025/02/14/question/">计算机考研复试专业面问答整理</a>
-          </li>
-        
-          <li>
-            <a href="/2025/02/13/algorithm/">anti的算法笔记</a>
-          </li>
-        
-          <li>
-            <a href="/2025/01/18/markdown/">Markdown用法简单记录</a>
-          </li>
-        
-      </ul>
-    </div>
-  </div>
-
-  
-</aside>
-        
-      </div>
-      <footer id="footer">
-  
-  <div class="outer">
-    <div id="footer-info" class="inner">
-      
-      &copy; 2025 AntiDotE<br>
-      Powered by <a href="https://hexo.io/" target="_blank">Hexo</a>
-    </div>
-  </div>
-</footer>
-
-    </div>
-    <nav id="mobile-nav">
-  
-    <a href="/" class="mobile-nav-link">Home</a>
-  
-    <a href="/archives" class="mobile-nav-link">Archives</a>
-  
-</nav>
-    
-
-
-<script src="/js/jquery-3.6.4.min.js"></script>
-
-
-
-  
-<script src="/fancybox/jquery.fancybox.min.js"></script>
-
-
-
-
-<script src="/js/script.js"></script>
-
-
-
-
-
-  </div>
-</body>
-</html>
+    </ul>
+  </div><div class="card-widget card-webinfo"><div class="item-headline"><i class="fas fa-chart-line"></i><span>网站信息</span></div><div class="webinfo"><div class="webinfo-item"><div class="item-name">文章数目 :</div><div class="item-count">4</div></div><div class="webinfo-item"><div class="item-name">本站访客数 :</div><div class="item-count" id="busuanzi_value_site_uv"><i class="fa-solid fa-spinner fa-spin"></i></div></div><div class="webinfo-item"><div class="item-name">本站总浏览量 :</div><div class="item-count" id="busuanzi_value_site_pv"><i class="fa-solid fa-spinner fa-spin"></i></div></div><div class="webinfo-item"><div class="item-name">最后更新时间 :</div><div class="item-count" id="last-push-date" data-lastPushDate="2025-03-02T12:02:25.952Z"><i class="fa-solid fa-spinner fa-spin"></i></div></div></div></div></div></div></main><footer id="footer"><div id="footer-wrap"><div class="copyright">&copy;2019 - 2025 By AntiDotE</div><div class="framework-info"><span>框架 </span><a target="_blank" rel="noopener" href="https://hexo.io">Hexo 7.3.0</a><span class="footer-separator">|</span><span>主题 </span><a target="_blank" rel="noopener" href="https://github.com/jerryc127/hexo-theme-butterfly">Butterfly 5.3.4</a></div></div></footer></div><div id="rightside"><div id="rightside-config-hide"><button id="darkmode" type="button" title="日间和夜间模式切换"><i class="fas fa-adjust"></i></button><button id="hide-aside-btn" type="button" title="单栏和双栏切换"><i class="fas fa-arrows-alt-h"></i></button></div><div id="rightside-config-show"><button id="rightside-config" type="button" title="设置"><i class="fas fa-cog fa-spin"></i></button><button id="go-up" type="button" title="回到顶部"><span class="scroll-percent"></span><i class="fas fa-arrow-up"></i></button></div></div><div><script src="/js/utils.js"></script><script src="/js/main.js"></script><div class="js-pjax"></div><script async data-pjax src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script></div></body></html>
